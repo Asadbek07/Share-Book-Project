@@ -6,4 +6,5 @@ from authentication.models import AuthUser, UserFollowing
 
 
 admin.site.register(AuthUser)
+
 admin.site.register(UserFollowing)
