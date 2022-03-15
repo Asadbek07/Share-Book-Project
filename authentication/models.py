@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
@@ -5,9 +6,9 @@ from django.contrib.auth.models import AbstractUser
 
 
 class AuthUser(AbstractUser):
-    pass
-
-
+    phone_number = models.CharField(max_length=25)
+    avatar = models.ImageField(upload_to="avatars/%Y/%m/%d/", blank=True)
+    
 
 
 class UserFollowing(models.Model):
