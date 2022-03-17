@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+
+
+{% block title %}
+    {{ book.name }}ning tafsilotlari
+{% endblock %}
+
+{% block content %}
+    <img src="{{ userbook.book.image.url }}" height="210" width="200" alt="{{ userbook.book.name }}">
+    
+    <p>
+        Nomi : {{ userbook.book.name }}
+    </p> 
+    
+    <p>
+        Muallif : {{ userbook.book.author }}
+    </p>
+    
+    
+    <p>
+        Reyting : {{ userbook.rating }}
+    </p>
+    
+    
+{% endblock %}

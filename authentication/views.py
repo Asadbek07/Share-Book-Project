@@ -1,3 +1,38 @@
+from typing import Any, Dict
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView 
+from django.views.generic.edit import UpdateView
+from django.views.generic import TemplateView
+from authentication.forms import CustomUserCreationForm
+from .models import AuthUser
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
-# Create your views here.
+class AuthUserDetailView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = AuthUser
+
+    fields = [
+        'username',
+        'avatar',
+        'first_name',
+        'last_name',
+        'email',
+        'phone_number'
+    ]
+    template_name = "authentication/profile/update.html"
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.id == self.request.user.id
+
+
+class SignupPageView(CreateView):
+    success_url = reverse_lazy('login')
+    template_name = 'authentication/profile/signup.html'
+    form_class = CustomUserCreationForm
+
+class HomePageView(TemplateView):
+    template_name = "authentication/home.html"
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        context = super(HomePageView, self).get_context_data(**kwargs)
+        return context                    

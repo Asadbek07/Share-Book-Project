@@ -1,8 +1,39 @@
 <h1>Kitob almashish saytiga xush kelibsiz!</h1>
 
+{% if request.user.is_authenticated %}
+   
+<p>
+    <a href="{% url 'user_detail_update' request.user.id%}">
+        {{ request.user.username }}
+    </a>
+</p>
+<p>
+    <a href="{% url 'logout' %}">Log Out</a>
+</p> 
+{% else %}
+<p>
+    <a href="{% url 'signup' %}">Sign Up</a>
+</p>
+
+<p>
+    <a href="{% url 'login' %}">Log In</a>
+</p>
+
+{% endif %}
+
+
+
 <p>
     <a href="{% url 'create_book' %}">Kitob qo'shish</a>
 </p>
 <p>
-    <a href="{% url 'book_list' %}">Kiblar ro'yxati</a>
+    <a href="{% url 'book_list' %}">Men o'qiyotgan kitoblar ro'yxati</a>
+</p>
+
+<p>
+    <a href="{% url 'shareable_books' %}">Ulashiladigan kitoblar ro'yxati</a>
+</p>
+
+<p>
+    <a href="{% url 'share_book' %}">Kitob ulashaman</a>
 </p>

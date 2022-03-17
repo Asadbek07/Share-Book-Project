@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+
+
+{% block title %}
+O'zgartirish
+{% endblock %}
+
+{% block content %}
+    Book list
+    <form method="post" enctype='multipart/form-data'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Kitob qo'sh">
+    </form>
+
+    
+{% endblock %}

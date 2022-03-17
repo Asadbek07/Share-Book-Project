@@ -1,0 +1,29 @@
+{% extends 'base.html' %} 
+
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    {% for userbook in object_list %}
+        <p>
+            <a href="{% url 'book_detail' userbook.id %}">
+                <img src="{{ userbook.book.image.url }}" height="100" width="110" alt="{{ userbook.book.name }}">
+            </a>
+            Nomi : <li>{{ userbook.book.name }}</li>
+            Muallif : <li>{{ userbook.book.author }}</li>
+            Rating : <li>{{ userbook.rating }}</li>
+            Egasi : <li>{{ userbook.owner.username }}</li>
+        </p>
+        {% if request.user == userbook.owner %}    
+        <p>
+            <a href="{% url 'update_book' userbook.id %}">O'zgartirish</a>
+        </p>
+        {% endif %}
+        <p>
+            <a href="{% url 'book_detail' userbook.id %}">Tafsilot</a>
+        </p>
+        {% endfor %}    
+    
+{% endblock %}
