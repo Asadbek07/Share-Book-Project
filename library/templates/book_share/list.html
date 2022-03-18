@@ -18,7 +18,6 @@
         {% else %}
         Hali ulashilmadi</p>
         {% endif %}
-        <p>Ulashuvchi insonning telefon raqami : {{ book.user_id.phone_number }}</p>
         <p><a href="{% url 'detail_shareable_books' book.id%}">Tafsilot</a></p>
         {% if request.user == book.user_id %}
         <p><a href="{% url 'update_shareable_books' book.id%}">O'zgartirish</a></p>

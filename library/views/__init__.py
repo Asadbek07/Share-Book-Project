@@ -7,4 +7,9 @@ from .user_books import UserBookDetailView, \
                         CreateUserBookView,\
                         UpdateUserBookView,\
                         UpdateUserBookView
+
+from .library import BookListView,\
+                     BookDetailView,\
+                     CreateBookView,\
+                     UpdateBookView
                          

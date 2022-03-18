@@ -1,0 +1,33 @@
+{% extends 'base.html' %} 
+
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    <p>
+        <a href="#">
+            <img src="{{ book.image.url }}" height="100" width="110" alt="{{ book.name }}">
+        </a>
+        Nomi : <li>{{ book.name }}</li>
+        Muallif : <li>{{ book.author }}</li>
+    </p>
+    
+    <form action="#">
+        <input type="text" placeholder="kitob haqida izoh qoldirish.....">
+        <input type="submit" value="Izoh qoldirish">
+    </form>
+    <ul>
+        <li>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores molestiae architecto veritatis officia, soluta eum cum sit possimus, perspiciatis quam eligendi sapiente totam porro omnis quo, velit assumenda vel veniam!</p>
+        </li>
+        <li>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores molestiae architecto veritatis officia, soluta eum cum sit possimus, perspiciatis quam eligendi sapiente totam porro omnis quo, velit assumenda vel veniam!</p>
+        </li>
+        <li>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores molestiae architecto veritatis officia, soluta eum cum sit possimus, perspiciatis quam eligendi sapiente totam porro omnis quo, velit assumenda vel veniam!</p>
+        </li>
+    </ul>
+
+{% endblock %}

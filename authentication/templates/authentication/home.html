@@ -1,4 +1,4 @@
-<h1>Kitob almashish saytiga xush kelibsiz!</h1>
+<h1>Oson almash</h1>
 
 {% if request.user.is_authenticated %}
    
@@ -24,10 +24,17 @@
 
 
 <p>
-    <a href="{% url 'create_book' %}">Kitob qo'shish</a>
+    <a href="{% url 'create_userbook' %}">Kitob qo'shish</a>
 </p>
 <p>
-    <a href="{% url 'book_list' %}">Men o'qiyotgan kitoblar ro'yxati</a>
+    <a href="{% url 'book_create' %}">Kutubxonaga kitob qo'shish</a>
+</p>
+<p>
+    <a href="{% url 'userbook_list' %}">Men o'qiyotgan kitoblar ro'yxati</a>
+</p>
+
+<p>
+    <a href="{% url 'book_list' %}">Kitoblar ro'yxati</a>
 </p>
 
 <p>
