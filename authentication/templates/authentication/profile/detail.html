@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Foydalanuvchi haqida ma'lumot
+{% endblock %}
+
+{% block content %}
+    <a href="#" >
+        
+        <img height="110" width="100" src="{%if profile.avatar %}{{ profile.avatar.url }}{% else %}{% static 'images/default.png' %}{% endif %}" alt="{{ request.user.username }}">
+    </a>
+
+    <p>
+        {{ profile.username }}
+    </p> 
+
+    <p>
+        {{ profile.first_name }}
+    </p>
+
+    <p>
+        {{ profile.last_name }}
+    </p>
+
+    <p>
+        <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+    </p>
+
+    <p>
+        {{ profile.phone_number }}
+
+    </p>
+
+{% endblock %}
