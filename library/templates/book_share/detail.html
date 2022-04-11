@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+    <img src="{{ object.book_id.book.image.url }}" height="100" width="110" alt="{{ object.book_id.book.name }}">
+    <p>Username : {{ object.user_id.username }}</p>
+    <p>Nomi : {{ object.book_id.book.name }}</p>
+    <p>Muallif : {{ object.book_id.book.author }}</p>
+    <p>
+        Holati: 
+    
+    {% if object.shared %}
+    Ulashilib bo'lgan</p>
+    {% else %}
+    Hali ulashilmadi</p>
+    {% endif %}
+    <p>Ulashuvchi insonning telefon raqami : {{ object.user_id.phone_number }}</p>
+
+
+{% endblock %}

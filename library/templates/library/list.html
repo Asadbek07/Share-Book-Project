@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    {% for book in object_list %}
+        <p>
+            <a href="#">
+                <img src="{{ book.image.url }}" height="100" width="110" alt="{{ book.name }}">
+            </a>
+            Nomi : <li>{{ book.name }}</li>
+            Muallif : <li>{{ book.author }}</li>
+        </p>
+        <p>
+            <a href="{% url 'book_detail' book.id %}">Batafsil</a>
+        </p>
+        <p>
+            <a href="{% url 'book_update' book.id %}">O'zgartirish</a>
+        </p>
+    {% endfor %}    
+    
+{% endblock %}

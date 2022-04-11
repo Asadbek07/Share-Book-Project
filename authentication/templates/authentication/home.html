@@ -1,0 +1,49 @@
+<h1>Oson almash</h1>
+
+{% if request.user.is_authenticated %}
+   
+<p>
+    <a href="{% url 'user_detail_update' request.user.id%}">
+        {{ request.user.username }}
+    </a>
+</p>
+<p>
+    <a href="{% url 'user_detail' request.user.id %}">sizning ma'lumotlaringiz</a>
+</p>
+<p>
+    <a href="{% url 'logout' %}">Log Out</a>
+</p> 
+{% else %}
+<p>
+    <a href="{% url 'signup' %}">Sign Up</a>
+</p>
+
+<p>
+    <a href="{% url 'login' %}">Log In</a>
+</p>
+
+{% endif %}
+
+
+
+<p>
+    <a href="{% url 'create_userbook' %}">Kitob qo'shish</a>
+</p>
+<p>
+    <a href="{% url 'book_create' %}">Kutubxonaga kitob qo'shish</a>
+</p>
+<p>
+    <a href="{% url 'userbook_list' %}">Men o'qiyotgan kitoblar ro'yxati</a>
+</p>
+
+<p>
+    <a href="{% url 'book_list' %}">Kitoblar ro'yxati</a>
+</p>
+
+<p>
+    <a href="{% url 'shareable_books' %}">Ulashiladigan kitoblar ro'yxati</a>
+</p>
+
+<p>
+    <a href="{% url 'share_book' %}">Kitob ulashaman</a>
+</p>

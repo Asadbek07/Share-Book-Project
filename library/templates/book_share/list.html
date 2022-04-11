@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    {% for book in object_list %}
+        <img src="{{ book.book_id.book.image.url }}" height="100" width="110" alt="{{ book.book_id.book.name }}">
+        <p>{{ book.user_id.username }}</p>
+        <p>{{ book.book_id.book.name }}</p>
+        <p>
+            Holati: 
+        
+        {% if book.shared %}
+        Ulashilib bo'lgan</p>
+        {% else %}
+        Hali ulashilmadi</p>
+        {% endif %}
+        <p><a href="{% url 'detail_shareable_books' book.id%}">Tafsilot</a></p>
+        {% if request.user == book.user_id %}
+        <p><a href="{% url 'update_shareable_books' book.id%}">O'zgartirish</a></p>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
